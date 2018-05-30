@@ -47,11 +47,12 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
         handler.postDelayed(runnable, 2000); //2000 is the timeout for the splash
 
         firebaseAuth = FirebaseAuth.getInstance();
-//        if(firebaseAuth.getCurrentUser() != null){
-//            //start home activity
-//            finish();
-//            startActivity(new Intent(getApplicationContext(), Activity_Home.class));
-//        }
+
+        if(firebaseAuth.getCurrentUser() != null){
+            //start home activity
+            finish();
+            startActivity(new Intent(getApplicationContext(), Activity_Main.class));
+        }
 
         textEmail = (EditText) findViewById(R.id.textEmail) ;
         textPassword = (EditText) findViewById(R.id.textPassword);
@@ -97,7 +98,7 @@ public class Activity_Login extends AppCompatActivity implements View.OnClickLis
                         if(task.isSuccessful()){
                             //start home activity
                             finish();
-                            startActivity(new Intent(getApplicationContext(), Activity_Home.class));
+                            startActivity(new Intent(getApplicationContext(), Activity_Main.class));
                         }else{
                             Toast.makeText(Activity_Login.this, "Wrong email or password!",Toast.LENGTH_LONG).show();
                         }

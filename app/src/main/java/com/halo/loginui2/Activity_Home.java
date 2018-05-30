@@ -39,6 +39,10 @@ public class Activity_Home extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view){
-
+        if(view == buttonLogout){
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this, Activity_Login.class));
+        }
     }
 }

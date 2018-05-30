@@ -20,7 +20,12 @@
         </activity>
         <activity android:name=".Activity_SignUp" />
         <activity android:name=".Activity_Forgot_Password" />
-        <activity android:name=".Activity_Home"></activity>
+        <activity android:name=".Activity_Home" />
+        <activity
+            android:name=".Activity_Main"
+            android:label="@string/title_activity__main"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Activity_Share"></activity>
     </application>
 
 </manifest>

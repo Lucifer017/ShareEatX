@@ -33,6 +33,13 @@ public class Activity_SignUp extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity__sign_up);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser() != null){
+            //start home activity
+            finish();
+            startActivity(new Intent(getApplicationContext(), Activity_Main.class));
+        }
+
         progressDialog = new ProgressDialog(this);
         buttonSignUp = (Button) findViewById(R.id.buttonSignUp);
         textEmail = (EditText) findViewById(R.id.textEmail);
@@ -88,12 +95,13 @@ public class Activity_SignUp extends AppCompatActivity implements View.OnClickLi
                                 //user is successfully registered
                                 finish();
                                 Toast.makeText(Activity_SignUp.this,"Registered successfully",Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(getApplicationContext(), Activity_Home.class));
+                                startActivity(new Intent(getApplicationContext(), Activity_Main.class));
 
                             }else {
                                 Toast.makeText(Activity_SignUp.this,"Couldn't register.. please try again",Toast.LENGTH_SHORT).show();
 
                             }
+                            progressDialog.dismiss();
                         }
                     });
         }
